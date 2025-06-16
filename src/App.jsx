@@ -18,16 +18,16 @@ function App() {
 
   return (
      <div>
-    {/* //   <Header /> 
-    //   <About />
-    //   <Contact/>
-    //   <Create /> */}
+       <Header /> 
+      <About />
+       <Contact/>
+       <Create />
       <Directory/>
-      {/* // <Home/>
-      // <Register/>
-      // <Login/>
-      // <Update/> 
-      // <Footer/> */}
+       <Home/>
+       <Register/>
+       <Login/>
+       <Update/> 
+       <Footer/>
       
 
         

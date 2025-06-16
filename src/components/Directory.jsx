@@ -34,9 +34,6 @@ function Directory() {
 
   console.log("clinics :>>", clinics);
 
-  
-  
-
   if (isLoading) {
     return <p>Loading Clinics...</p>;
   }
@@ -47,42 +44,25 @@ function Directory() {
 
   return (
     <div>
-      <main>
+      <main className="main-container">
         {
           <div>
             <h1>Clinic Directory</h1>
-            {/* {clinics.map((clinic) => (
-              <p key={clinic._id}>
-                {clinic.clinicName}
-               {L.marker([clinic.latitude, clinic.longitude]).addTo(map)}
-              </p>
-            ))} */}
+          
           </div>
         }
         <div>
-          <MapContainer center={bostonCenter} zoom={13} scrollWheelZoom={false}>
+          <MapContainer center={bostonCenter} zoom={11} scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            <Marker position={bostonCenter}>
-              <Popup>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Popup>
-            </Marker>
-
-            <Marker position={[42.36321, -71.06879]}>
-              <Popup>Mass General Hospital</Popup>
-            </Marker>
-
             {clinics.map((clinic) => (
               <div key={clinic._id}>
-              <Marker
-                position={[clinic.latitude, clinic.longitude]}
-              >
-                <Popup>{clinic.clinicName}</Popup>
-              </Marker>
+                <Marker position={[clinic.latitude, clinic.longitude]}>
+                  <Popup>{clinic.clinicName}</Popup>
+                </Marker>
               </div>
             ))}
           </MapContainer>
