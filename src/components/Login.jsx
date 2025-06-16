@@ -1,0 +1,39 @@
+function Login() {
+  return (
+    <div>
+      <main>
+        <section className="login">
+          <div className="login-container">
+            <h1>Login</h1>
+
+            <form action="#" method="POST">
+              <div className="form-group">
+                <label for="username">Username: </label>
+                <input type="text" 
+                id="username" 
+                name="username" 
+                required />
+              </div>
+
+              <div className="form-group">
+                <label for="password">Password: </label>
+                <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                required />
+              </div>
+
+              <div className="form-group">
+                <button type="submit">Login</button>
+              </div>
+
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+export default Login;
