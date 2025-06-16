@@ -54,7 +54,7 @@ function Directory() {
             {/* {clinics.map((clinic) => (
               <p key={clinic._id}>
                 {clinic.clinicName}
-               {L.marker([clinic.longitude, clinic.latitude]).addTo(map)}
+               {L.marker([clinic.latitude, clinic.longitude]).addTo(map)}
               </p>
             ))} */}
           </div>
@@ -79,7 +79,7 @@ function Directory() {
             {clinics.map((clinic) => (
               <div key={clinic._id}>
               <Marker
-                position={[clinic.longitude, clinic.latitude]}
+                position={[clinic.latitude, clinic.longitude]}
               >
                 <Popup>{clinic.clinicName}</Popup>
               </Marker>
