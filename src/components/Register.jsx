@@ -9,7 +9,7 @@ function Register() {
             <form action="#" method="PUT">
 
                 <div className="form-group">
-                <label for="firstname">First Name:  </label>
+                <label htmlFor="firstname">First Name:  </label>
                 <input 
                 type="text" 
                 id="firstname" 
@@ -18,7 +18,7 @@ function Register() {
               </div>
 
                <div className="form-group">
-                <label for="lastname">Last Name: </label>
+                <label htmlFor="lastname">Last Name: </label>
                 <input type="text" 
                 id="lastname" 
                 name="lastname" 
@@ -26,7 +26,7 @@ function Register() {
               </div>
 
               <div className="form-group">
-                <label for="username">Username: </label>
+                <label htmlFor="username">Username: </label>
                 <input 
                 type="text" 
                 id="username" 
@@ -35,7 +35,7 @@ function Register() {
               </div>
 
               <div className="form-group">
-                <label for="password">Password: </label>
+                <label htmlFor="password">Password: </label>
                 <input 
                 type="password" 
                 id="password" 

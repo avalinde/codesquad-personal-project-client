@@ -1,10 +1,10 @@
 function Home() {
   return (
     <div>
-      Home
+      
       <main>
         <section className="home">
-          <h1>Welcome to the Boston Informed Consent Directory! &#9895</h1>
+          <h1>Welcome to the Boston Informed Consent Directory! {'\u26a7'}</h1>
         </section>
 
         <section className="homeimage">

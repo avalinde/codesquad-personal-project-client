@@ -1,106 +1,387 @@
+import { useEffect, useState } from "react";
+
 function Update() {
+  const URL = "https://ic-directory-server.onrender.com/";
+  const endpoint = "api/clinics/";
+  let clinicID = "684776f904ed535ac7ca6c11";
+
+  const [formData, setFormData] = useState({
+    clinicName: "",
+    street: "",
+    phone: "",
+    website_url: "",
+    latitude: 0,
+    longitude: 0,
+    primaryCare: false,
+    behavioralHealth: false,
+    surgicalTeam: false,
+    aetna: false,
+    blueCrossBlueShield: false,
+    cigna: false,
+    commonWealthCareAlliance: false,
+    harvardPilgrim: false,
+    humana: false,
+    mgb: false,
+    masshealth: false,
+    medicare: false,
+    tricare: false,
+    tufts: false,
+    United: false,
+    wellsense: false,
+  });
+
+  useEffect(() => {
+    fetch(`${URL}${endpoint}${clinicID}`)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        setFormData(result.data.clinic);
+      });
+  }, [clinicID]);
+
+  const handleChange = (event, type) => {
+    const { name, value } = event.target;
+    if (type === "checkbox") {
+      setFormData((prevFormData) => [
+        {
+          ...prevFormData,
+          [name]: event.target.checked,
+        },
+      ]);
+    } else {
+      setFormData((prevFormData) => [
+        {
+          ...prevFormData,
+          [name]: value,
+        },
+      ]);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    fetch(`${URL}${endpoint}update/${clinicID}`, {
+      method: "PUT",
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        setFormData(result);
+      });
+  };
+
+  console.log("formdata :>>>", formData);
+  console.log(formData.clinicName);
+
   return (
     <div>
       <main>
         <div className="main-container">
           <h1>Update a Listing</h1>
-          <form className="form-f">
+          <form onSubmit={handleSubmit} className="form-f">
             <p className="form-p">
-              <label className="form-l" htmlFor="hospitalName">
-                Clinic Name:{" "}
-              </label>
-              <select className="form-i" name="insurance" id="insurance">
-                <option value="pleasechoose" selected disabled>
-                  --Select--
-                </option>
-                <option value="MGH">Massachussets General Hospital</option>
-                <option value="BWH">Brigham and Women's Hospital</option>
-                <option value="Fenway">Fenway Health</option>
-                <option value="BMC">Boston Medical Center</option>
-              </select>
-            </p>
-            <p className="form-p">
-              <label className="form-l" htmlFor="address">
-                Address:
+              <label className="form-l" htmlFor="clinicName">
+                Clinic Name: 
               </label>
               <input
                 className="form-i"
                 type="text"
-                name="address"
-                id="address"
-                placeholder="Address"
+                name="clinicName"
+                id="clinicName"
+                value={formData.clinicName}
+                onChange={handleChange}
                 required
+              />
+            </p>
+            <p className="form-p">
+              <label className="form-l" htmlFor="street">
+                Street Address:
+              </label>
+              <input
+                className="form-i"
+                type="text"
+                name="street"
+                id="street"
+                value={formData.street}
+                onChange={handleChange}
+              />
+            </p>
+
+            {/* <p className="form-p">
+              <label className="form-l" htmlFor="">
+                City:
+              </label>
+              <input
+                className="form-i"
+                type="text"
+                name=""
+                id=""
+                placeholder=""
+                onChange={handleChange}
               />
             </p>
 
             <p className="form-p">
-              <label className="form-l" htmlFor="addressLine2">
-                Address Line 2 (Optional):
+              <label className="form-l" htmlFor="">
+                State:
               </label>
               <input
                 className="form-i"
                 type="text"
-                name="addressLine2"
-                id="addressLine2"
-                placeholder="Address Line 2"
+                name=""
+                id=""
+                placeholder=""
+                onChange={handleChange}
+              />
+            </p>
+
+            <p className="form-p">
+              <label className="form-l" htmlFor="">
+                Zip:
+              </label>
+              <input
+                className="form-i"
+                type="text"
+                name=""
+                id=""
+                placeholder=""
+                onChange={handleChange}
+              />
+            </p> */}
+            <p className="form-p">
+              <label className="form-l" htmlFor="phone">
+                Phone:
+              </label>
+              <input
+                className="form-i"
+                type="text"
+                name="phone"
+                id="phone"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </p>
+
+            <p className="form-p">
+              <label className="form-l" htmlFor="website_url">
+                Website:
+              </label>
+              <input
+                className="form-i"
+                type="text"
+                name="website_url"
+                id="website_url"
+                value={formData.website_url}
+                onChange={handleChange}
+              />
+            </p>
+
+            <p className="form-p">
+              <label className="form-l" htmlFor="latitude">
+                Latitude:
+              </label>
+              <input
+                className="form-i"
+                type="number"
+                name="latitude"
+                id="latitude"
+                value={formData.latitude}
+                onChange={handleChange}
+              />
+            </p>
+
+            <p className="form-p">
+              <label className="form-l" htmlFor="longitude">
+                Longitude:
+              </label>
+              <input
+                className="form-i"
+                type="number"
+                name="longitude"
+                id="longitude"
+                value={formData.longitude}
+                onChange={handleChange}
               />
             </p>
 
             <p className="form-p">
               <label className="form-l">Services Offered:</label>
             </p>
-            <input
-              type="checkbox"
-              id="service1"
-              name="service1"
-              value="service1"
-            />
-            <label htmlFor="service1"> Service 1</label>
-            <br />
-            <input
-              type="checkbox"
-              id="service2"
-              name="service2"
-              value="service2"
-            />
-            <label htmlFor="service2">Service 2</label>
-            <br />
-            <input
-              type="checkbox"
-              id="service3"
-              name="service3"
-              value="service3"
-            />
-            <label htmlFor="service3"> Service 3</label>
+            <div className="form-i-group">
+              <label htmlFor="primaryCare">Primary Care</label>
+              <input
+                type="checkbox"
+                id="primaryCare"
+                name="primaryCare"
+                checked={formData.primaryCare}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="behavioralHealth">
+                Counseling and Psychiatry
+              </label>
+              <input
+                type="checkbox"
+                id="behavioralHealth"
+                name="behavioralHealth"
+                checked={formData.behavioralHealth}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+            <div className="form-i-group">
+              <label htmlFor="surgicalTeam">Surgical Team</label>
+              <input
+                type="checkbox"
+                id="surigcalTeam"
+                name="surgicalTeam"
+                checked={formData.surgicalTeam}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
 
             <p className="form-p">
-              <label className="form-l" htmlFor="insurance">
-                Insurance Information:
-              </label>
-              <select className="form-i" name="insurance" id="insurance">
-                <option value="pleasechoose" selected disabled>
-                  --Select--
-                </option>
-                <option value="MassHealth">MassHealth</option>
-                <option value="Blue Cross Blue Shield">
-                  Blue Cross Blue Shield
-                </option>
-                <option value="Tufts">Tufts</option>
-                <option value="Harvard Pilgrim">Harvard Pilgrim</option>
-                <option value="Other">Other</option>
-              </select>
+              <label className="form-l">Insurances Accepted: </label>
             </p>
+            <div className="form-i-group">
+              <label htmlFor="aetna">Aetna</label>
+              <input
+                type="checkbox"
+                id="aetna"
+                name="aetna"
+                checked={formData.aetna}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
 
-            <p className="form-p">
-              <label className="form-l" htmlFor="otherInfo">
-                Other Information:
+            <div className="form-i-group">
+              <label htmlFor="blueCrossBlueShield">
+                Blue Cross Blue Shield
               </label>
-              <textarea className="form-i" name="otherInfo" id="otherInfo">
-                
-              </textarea>
-            </p>
+              <input
+                type="checkbox"
+                id="blueCrossBlueShield"
+                name="blueCrossBlueShield"
+                checked={formData.blueCrossBlueShield}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+            <div className="form-i-group">
+              <label htmlFor="cigna">Cigna</label>
+              <input
+                type="checkbox"
+                id="cigna"
+                name="cigna"
+                checked={formData.cigna}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+            <div className="form-i-group">
+              <label htmlFor="commonWeathCareAlliance">
+                Common Wealth Care Alliance
+              </label>
+              <input
+                type="checkbox"
+                id="commonWeathCareAlliance"
+                name="commonWeathCareAlliance"
+                checked={formData.commonWealthCareAlliance}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="harvardPilgrim">Harvard Pilgrim</label>
+              <input
+                type="checkbox"
+                id="harvardPilgrim"
+                name="harvardPilgrim"
+                checked={formData.harvardPilgrim}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="humana">Humana</label>
+              <input
+                type="checkbox"
+                id="humana"
+                name="humana"
+                checked={formData.humana}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="mgb">Mass General Brigham Health Plan</label>
+              <input
+                type="checkbox"
+                id="mgb"
+                name="mgb"
+                checked={formData.mgb}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="masshealth">MassHealth</label>
+              <input
+                type="checkbox"
+                id="masshealth"
+                name="masshealth"
+                checked={formData.masshealth}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="medicare">Medicare</label>
+              <input
+                type="checkbox"
+                id="medicare"
+                name="medicare"
+                checked={formData.medicare}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="tricare">Tricare</label>
+              <input
+                type="checkbox"
+                id="tricare"
+                name="tricare"
+                checked={formData.tricare}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="tufts">Tufts</label>
+              <input
+                type="checkbox"
+                id="tufts"
+                name="tufts"
+                checked={formData.tufts}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
+            <div className="form-i-group">
+              <label htmlFor="United">United</label>
+              <input
+                type="checkbox"
+                id="United"
+                name="United"
+                checked={formData.United}
+                onChange={(e) => handleChange(e, "checkbox")}
+              />
+            </div>
+
             <p className="text-center">
-              <button>SUBMIT</button>
+              <button onClick={handleSubmit}>Update Listing</button>
             </p>
           </form>
         </div>
@@ -108,5 +389,4 @@ function Update() {
     </div>
   );
 }
-
 export default Update;

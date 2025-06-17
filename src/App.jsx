@@ -2,6 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import About from './components/About'
+import Clinics from './components/Clinics'
 import Contact from './components/Contact'
 import Create from './components/Create'
 import Directory from './components/Directory'
@@ -19,13 +20,14 @@ function App() {
   return (
      <div>
        <Header /> 
-      <About />
-       <Contact/>
-       <Create />
-      <Directory/>
+      {/* <About />
+       <Contact/> */}
+       <Clinics/>
+       {/* <Create /> */}
+      {/* <Directory/>
        <Home/>
        <Register/>
-       <Login/>
+       <Login/> */}
        <Update/> 
        <Footer/>
       
