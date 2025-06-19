@@ -1,7 +1,7 @@
 function Register() {
   return (
     <div>
-      <main>
+      <main className="main-container">
         <section className="login">
           <div className="login-container">
             <h1>Register</h1>

@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import L from "leaflet";
+import { Link } from "react-router-dom";
 
 function Directory() {
   const URL = "https://ic-directory-server.onrender.com/";
@@ -61,7 +62,13 @@ function Directory() {
             {clinics.map((clinic) => (
               <div key={clinic._id}>
                 <Marker position={[clinic.latitude, clinic.longitude]}>
-                  <Popup>{clinic.clinicName}</Popup>
+                  <Popup >
+                    <div className="text-center">
+                    {clinic.clinicName}
+                    <br/>
+                    <Link to={`../update/${clinic._id}`}>Update</Link>
+                    </div>
+                    </Popup>
                 </Marker>
               </div>
             ))}

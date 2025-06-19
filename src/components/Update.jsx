@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
 
 function Update() {
   const URL = "https://ic-directory-server.onrender.com/";
   const endpoint = "api/clinics/";
-  let clinicID = "684776f904ed535ac7ca6c11";
+  //let clinicID = "684776f904ed535ac7ca6c12";
+  const { clinicID } = useParams();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     clinicName: "",
@@ -40,40 +43,43 @@ function Update() {
   }, [clinicID]);
 
   const handleChange = (event, type) => {
-    const { name, value } = event.target;
+    let value = event.target.value;
+    let name = event.target.name;
+
+    if (name === "longitude" || name === "latitude") {
+      value = parseFloat(value);
+    }
+
     if (type === "checkbox") {
-      setFormData((prevFormData) => [
-        {
-          ...prevFormData,
-          [name]: event.target.checked,
-        },
-      ]);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [event.target.name]: event.target.checked,
+      }));
     } else {
-      setFormData((prevFormData) => [
-        {
-          ...prevFormData,
-          [name]: value,
-        },
-      ]);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
     }
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+
     fetch(`${URL}${endpoint}update/${clinicID}`, {
       method: "PUT",
+      headers:{"Content-type":"application/json"},
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
-        setFormData(result);
+        navigate("../admin")
       });
   };
 
-  console.log("formdata :>>>", formData);
-  console.log(formData.clinicName);
+  
 
   return (
     <div>
@@ -91,7 +97,7 @@ function Update() {
                 name="clinicName"
                 id="clinicName"
                 value={formData.clinicName}
-                onChange={handleChange}
+               onChange={(e) => handleChange(e, "text")}
                 required
               />
             </p>
@@ -105,7 +111,7 @@ function Update() {
                 name="street"
                 id="street"
                 value={formData.street}
-                onChange={handleChange}
+                onChange={(e)=>handleChange(e, "text")}
               />
             </p>
 
@@ -184,12 +190,11 @@ function Update() {
               </label>
               <input
                 className="form-i"
-                type="number"
+                type="text"
                 name="latitude"
                 id="latitude"
                 value={formData.latitude}
-                onChange={handleChange}
-              />
+onChange={(e) => handleChange(e, "text")}              />
             </p>
 
             <p className="form-p">
@@ -198,11 +203,11 @@ function Update() {
               </label>
               <input
                 className="form-i"
-                type="number"
+                type="text"
                 name="longitude"
                 id="longitude"
                 value={formData.longitude}
-                onChange={handleChange}
+               onChange={(e) => handleChange(e, "text")}
               />
             </p>
 
@@ -383,6 +388,8 @@ function Update() {
             <p className="text-center">
               <button onClick={handleSubmit}>Update Listing</button>
             </p>
+            <Link className="text-center" to={"../admin"}>Cancel</Link>
+            
           </form>
         </div>
       </main>

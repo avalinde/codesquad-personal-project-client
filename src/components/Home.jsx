@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Home() {
   return (
     <div>
@@ -9,14 +11,14 @@ function Home() {
 
         <section className="homeimage">
           <p>
-            <img src="images/trans-flag-shutterstock.jpg" alt="" />
+            <img src="./public/images/trans-flag-shutterstock.jpg" alt="" />
           </p>
         </section>
 
         <section className="home-container">
-          <a href="#">
-            <h2>View Directory</h2>
-          </a>
+         <Link to={"/directory"}><h2>View Directory</h2></Link>
+            
+          
           <p>View the Directory of Informed Consent Clinics</p>
         </section>
       </main>
