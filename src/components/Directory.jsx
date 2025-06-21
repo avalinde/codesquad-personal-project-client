@@ -28,7 +28,7 @@ const Directory = () => {
       iconUrl: markerIconUrl,
       iconSize: [25, 41],
       iconAnchor: [25, 41],
-      popupAnchor: [-12.5, -51], //adjusting to b centered over marker
+      popupAnchor: [-12.5, -41], //adjusting to b centered over marker
       shadowUrl: markerShadowUrl,
       shadowSize: [41,41],
       shadowAnchor: null,
