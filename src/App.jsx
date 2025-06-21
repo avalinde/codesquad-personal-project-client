@@ -1,7 +1,7 @@
-// import { useState } from 'react'
+ import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 
 import About from "./components/About";
 import Admin from "./components/Admin";
@@ -17,6 +17,11 @@ import Footer from "./shared/Footer";
 import "./App.css";
 
 function App() {
+
+const [user, setUser] = useState(localStorage.getItem("user") || {});
+
+
+
   return (
     <div>
       <Header />
@@ -28,8 +33,8 @@ function App() {
         <Route path="/create" element={<Create />} />
         <Route path="/directory" element={<Directory />} />
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register user={user} setUser={setUser} />} />
+        <Route path="/login" element={<Login user={user} setUser={setUser} />} />
         <Route path="/update/:clinicID" element={<Update />} />
       </Routes>
       <Footer />
