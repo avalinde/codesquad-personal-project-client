@@ -37,7 +37,7 @@ const Header = ({ user, setUser }) => {
           </div>
           <ul id="nav-list">
             <li>
-              <Link to={"../home"}>Home</Link>
+              <Link to={"../"}>Home</Link>
             </li>
             <li>
               <Link to={"../directory"}>Directory</Link>

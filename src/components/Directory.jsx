@@ -61,6 +61,7 @@ const Directory = () => {
             {clinics.map((clinic) => (
               <div key={clinic._id}>
                 <Marker position={[clinic.latitude, clinic.longitude]}>
+                  <img src="./images/marker-icon.png" alt="Leaflet Marker" />
                   <Popup>
                     <div className="text-center">
                       {/* <Link to={`../clinic/${clinic._id}`}>{clinic.clinicName}</Link> */}
