@@ -90,7 +90,7 @@ function Contact() {
                   placeholder="Enter your message..."
                 ></textarea>
               </div>
-              <div className="form-group">
+              <div className="text-center">
                 <button type="submit">Send Message</button>
               </div>
             </form>

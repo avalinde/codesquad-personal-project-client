@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link } from "react-router-dom";
 
-function Directory() {
+const Directory = () => {
   const URL = "https://ic-directory-server.onrender.com/";
 
   const endpoint = "api/clinics";
@@ -49,7 +49,6 @@ function Directory() {
         {
           <div>
             <h1>Clinic Directory</h1>
-          
           </div>
         }
         <div>
@@ -62,13 +61,12 @@ function Directory() {
             {clinics.map((clinic) => (
               <div key={clinic._id}>
                 <Marker position={[clinic.latitude, clinic.longitude]}>
-                  <Popup >
+                  <Popup>
                     <div className="text-center">
-                    {clinic.clinicName}
-                    <br/>
-                    <Link to={`../update/${clinic._id}`}>Update</Link>
+                      {/* <Link to={`../clinic/${clinic._id}`}>{clinic.clinicName}</Link> */}
+                      {clinic.clinicName}
                     </div>
-                    </Popup>
+                  </Popup>
                 </Marker>
               </div>
             ))}
@@ -77,6 +75,6 @@ function Directory() {
       </main>
     </div>
   );
-}
+};
 
 export default Directory;

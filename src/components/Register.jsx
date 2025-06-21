@@ -22,7 +22,7 @@ const Register = ({ setUser }) => {
 
     setIsLoading(true);
 
-    fetch(`${URL}/auth/register`, {
+    fetch(`${URL}auth/register`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -44,32 +44,32 @@ const Register = ({ setUser }) => {
   return (
     <div>
       <main className="main-container">
-        <section className="login">
-          <div className="login-container">
+        <section className="">
+          <div className="form-container">
             <h1>Register</h1>
 
-            <form onSubmit={handleSignupFormSubmit}>
-              <div className="form-group">
-                <label htmlFor="firstname">First Name: </label>
+            <form className="form-f" onSubmit={handleSignupFormSubmit}>
+              <div className="form-p">
+                <label className="form-l" htmlFor="firstname">First Name: </label>
                 <input type="text" id="firstname" name="firstname" required />
               </div>
 
-              <div className="form-group">
+              <div className="form-p">
                 <label htmlFor="lastname">Last Name: </label>
                 <input type="text" id="lastname" name="lastname" required />
               </div>
 
-              <div className="form-group">
+              <div className="form-p">
                 <label htmlFor="username">Username: </label>
                 <input type="text" id="username" name="username" required />
               </div>
 
-              <div className="form-group">
+              <div className="form-p">
                 <label htmlFor="password">Password: </label>
                 <input type="password" id="password" name="password" required />
               </div>
 
-              <div className="form-group">
+              <div className="text-center">
                 <button type="submit">
                   {isLoading ? "Registering new User..." : "Register"}
                 </button>

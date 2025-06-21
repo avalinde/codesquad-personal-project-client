@@ -44,20 +44,36 @@ const Login = ({ setUser }) => {
     <div>
       <main className="main-container">
         <section className="">
-          <div className="">
+          <div className="form-container">
             <h1>Login</h1>
-            <form onSubmit={handleLoginFormSubmit}>
-              <div className="form-group">
-                <label htmlFor="username">Username: </label>
-                <input type="text" id="username" name="username" required />
+            <form onSubmit={handleLoginFormSubmit} className="form-f">
+              <div className="form-p">
+                <label htmlFor="username" className="form-l">
+                  Username:{" "}
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  required
+                  className="form-i"
+                />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="password">Password: </label>
-                <input type="password" id="password" name="password" required />
+              <div className="form-p">
+                <label className="form-l" htmlFor="password">
+                  Password:{" "}
+                </label>
+                <input
+                  className="form-i"
+                  type="password"
+                  id="password"
+                  name="password"
+                  required
+                />
               </div>
-
-              <div className="form-group">
+              
+              <div className="text-center">
                 <button type="submit" disabled={isLoading}>
                   {" "}
                   {isLoading ? "Logging in..." : "Login"}
@@ -73,8 +89,8 @@ const Login = ({ setUser }) => {
   );
 };
 
-Login.propTypes ={
+Login.propTypes = {
   setUser: PropTypes.func.isRequired,
-}
+};
 
 export default Login;
