@@ -5,6 +5,8 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link } from "react-router-dom";
 
+
+
 const Directory = () => {
   const URL = "https://ic-directory-server.onrender.com/";
 
@@ -15,6 +17,18 @@ const Directory = () => {
   const [clinics, setClinics] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+
+  const markerIconUrl = "../node_modules/leaflet/dist/images/marker-icon.png"
+  const markerIconRetinaUrl = "../node_modules/leaflet/dist/images/marker-icon-2x.png";
+  const markerShadowUrl = "../node_modules/leaflet/dist/images/marker-shadow.png";
+
+
+
+    L.Icon.Default.prototype.options.iconUrl = markerIconUrl;
+    L.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
+    L.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
+    L.Icon.Default.imagePath = "";
+
 
   useEffect(() => {
     setErrorMessage("");
@@ -61,7 +75,6 @@ const Directory = () => {
             {clinics.map((clinic) => (
               <div key={clinic._id}>
                 <Marker position={[clinic.latitude, clinic.longitude]}>
-                  <img src="./images/marker-icon.png" alt="Leaflet Marker" />
                   <Popup>
                     <div className="text-center">
                       {/* <Link to={`../clinic/${clinic._id}`}>{clinic.clinicName}</Link> */}
