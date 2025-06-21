@@ -405,7 +405,7 @@ td {
     justify-content: flex-end;
   }
 
-  #nav-list {
+  /* #nav-list {
     display: none;
     flex-direction: column;
     text-align: center;
@@ -422,12 +422,12 @@ td {
   }
 
   .menu-toggle {
-    display: block;
+    display: none;
   }
 
   #nav-list.active {
-    display: flex;
-  }
+    display: none;
+  } */
 }
 
 /* Medium devices (e.g., tablets) */
