@@ -18,16 +18,21 @@ const Directory = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const markerIconUrl = "../node_modules/leaflet/dist/images/marker-icon.png"
-  const markerIconRetinaUrl = "../node_modules/leaflet/dist/images/marker-icon-2x.png";
-  const markerShadowUrl = "../node_modules/leaflet/dist/images/marker-shadow.png";
+  const markerIconUrl = "./images/marker-icon.png"
+  // const markerIconRetinaUrl = "./images/marker-icon-2x.png";
+  const markerShadowUrl = "./images/marker-shadow.png";
 
 
 
-    L.Icon.Default.prototype.options.iconUrl = markerIconUrl;
-    L.Icon.Default.prototype.options.iconRetinaUrl = markerIconRetinaUrl;
-    L.Icon.Default.prototype.options.shadowUrl = markerShadowUrl;
-    L.Icon.Default.imagePath = "";
+   const myIcon = L.icon({
+      iconUrl: markerIconUrl,
+      iconSize: [64, 64],
+      iconAnchor: [32, 64],
+      popupAnchor: null,
+      shadowUrl: markerShadowUrl,
+      shadowSize: null,
+      shadowAnchor: null,
+    });
 
 
   useEffect(() => {
@@ -70,11 +75,12 @@ const Directory = () => {
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              setParams={true}
             />
 
             {clinics.map((clinic) => (
               <div key={clinic._id}>
-                <Marker position={[clinic.latitude, clinic.longitude]}>
+                <Marker icon={myIcon} position={[clinic.latitude, clinic.longitude]}>
                   <Popup>
                     <div className="text-center">
                       {/* <Link to={`../clinic/${clinic._id}`}>{clinic.clinicName}</Link> */}
