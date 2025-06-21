@@ -11,7 +11,7 @@ function Home() {
 
         <section className="homeimage">
           <p>
-            <img src="./public/images/trans-flag-shutterstock.jpg" alt="" />
+            <img src="./images/trans-flag-shutterstock.jpg" alt="" />
           </p>
         </section>
 
