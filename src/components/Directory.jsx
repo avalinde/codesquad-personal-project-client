@@ -26,11 +26,11 @@ const Directory = () => {
 
    const myIcon = L.icon({
       iconUrl: markerIconUrl,
-      iconSize: [64, 64],
-      iconAnchor: [32, 64],
+      iconSize: [25, 41],
+      iconAnchor: [25, 41],
       popupAnchor: null,
       shadowUrl: markerShadowUrl,
-      shadowSize: null,
+      shadowSize: [41,41],
       shadowAnchor: null,
     });
 
