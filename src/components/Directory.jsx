@@ -28,10 +28,8 @@ const Directory = () => {
       iconUrl: markerIconUrl,
       iconSize: [25, 41],
       iconAnchor: [25, 41],
-      popupAnchor: null,
       shadowUrl: markerShadowUrl,
       shadowSize: [41,41],
-      shadowAnchor: null,
     });
 
 
