@@ -370,6 +370,7 @@ button {
 
 .cyan {
   background-color: #00ffff;
+  margin-bottom: 1.5rem;
 }
 .cyan:hover {
   background-color: #2ca8e6;

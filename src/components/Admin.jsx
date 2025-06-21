@@ -58,7 +58,11 @@ function Admin() {
         {
           <div>
             <h1>Directory Admin Controller</h1>
+
+            <h2>Welcome Eve!</h2>
+            <br/>
             <button className="cyan" onClick={()=> navigate("../create")}>+ Create New Clinic</button>
+            <br />
           </div>
         }
         <div>
