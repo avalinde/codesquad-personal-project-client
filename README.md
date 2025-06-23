@@ -1,8 +1,9 @@
 # Boston Informed Consent Directory
 
-This project is a proof-of-concept that creates a directory of transgender health clinics in the Boston area and stores prudent information in the 
+This project is a proof-of-concept that creates a directory of transgender health clinics in the Boston area and stores prudent information in the database. 
 
 Link to project: https://ic-directory.netlify.app/
+Link to backend repository: https://github.com/avalinde/ic-directory-server/
 
 ## Tech used: 
 
