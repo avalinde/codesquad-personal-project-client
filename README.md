@@ -9,7 +9,7 @@ Link to backend repository: https://github.com/avalinde/ic-directory-server/
 
 HTML, CSS, JavaScript, Leaflet, Formcarry, React.js
 
-This app takes the data built on the backend (project repo here) and displays each clinic as a marker using latitude/longitude data points on the Leaflet react API. Full crud operations functional via admin console. Admin console secured by login authentication with backend. Formcarry API creates a functional emailing contact page. Styling completed via CSS with consistent aesthetic on variety of platforms. 
+This app takes the data built on the backend (project repo above) and displays each clinic as a marker using latitude/longitude data points on the Leaflet react API. Full crud operations functional via admin console. Admin console secured by login authentication with backend. Formcarry API creates a functional emailing contact page. Styling completed via CSS with consistent aesthetic on variety of platforms. 
 
 
 ## Lessons Learned:
