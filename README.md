@@ -4,7 +4,7 @@ This project is a proof-of-concept that creates a directory of transgender healt
 
 Link to project: https://ic-directory.netlify.app/
 
-##Tech used: 
+## Tech used: 
 
 HTML, CSS, JavaScript, Leaflet, Formcarry, React.js
 
