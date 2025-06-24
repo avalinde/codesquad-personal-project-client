@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Create() {
   const [formData, setFormData] = useState({
@@ -26,6 +26,8 @@ function Create() {
     United: false,
     wellsense: false,
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (event, type) => {
     let value = event.target.value;
@@ -62,6 +64,7 @@ function Create() {
     })
       .then((response) => response.json())
       .then((result) => console.log(result));
+       navigate("../admin")
   };
 
   console.log(formData);
