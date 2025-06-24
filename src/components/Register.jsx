@@ -70,7 +70,7 @@ const Register = ({ setUser }) => {
               </div>
 
               <div className="text-center">
-                <button type="submit">
+                <button className="top-margin" type="submit">
                   {isLoading ? "Registering new User..." : "Register"}
                 </button>
               </div>
