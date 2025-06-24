@@ -368,6 +368,10 @@ button {
   transition: background-color 0.3s ease;
 }
 
+.top-margin{
+  margin-top: 2.5rem;
+}
+
 .cyan {
   background-color: #00ffff;
   margin-bottom: 1.5rem;

@@ -74,13 +74,14 @@ const Login = ({ setUser }) => {
               </div>
               
               <div className="text-center">
-                <button type="submit" disabled={isLoading}>
+                <button className="top-margin" type="submit" disabled={isLoading}>
                   {" "}
                   {isLoading ? "Logging in..." : "Login"}
                 </button>
               </div>
               {error && <p>There is an error: {error}</p>}
             </form>
+            <br />
             {redirectNote} <Link to="/register">Register</Link>
           </div>
         </section>
