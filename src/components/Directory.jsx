@@ -28,7 +28,7 @@ const Directory = () => {
       iconUrl: markerIconUrl,
       iconSize: [25, 41],
       iconAnchor: [25, 41],
-      popupAnchor: [-12.5, -41], //adjusting to b centered over marker
+      popupAnchor: [-12.5, -41], //adjusting to be centered over marker
       shadowUrl: markerShadowUrl,
       shadowSize: [41,41],
       shadowAnchor: null,
@@ -85,6 +85,8 @@ const Directory = () => {
                     <div className="text-center">
                       {/* <Link to={`../clinic/${clinic._id}`}>{clinic.clinicName}</Link> */}
                       {clinic.clinicName}
+                       <br/>
+                    <Link to={`../update/${clinic._id}`}>Update</Link>
                     </div>
                   </Popup>
                 </Marker>
