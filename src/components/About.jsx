@@ -34,6 +34,8 @@ function About() {
             {'\u0020'}for more information on the informed consent model. 
             </p>
 
+            <p className="text-center"> <a href="https://pubmed.ncbi.nlm.nih.gov/25779756/">Comprehensive transgender healthcare: the gender affirming clinical and public health model of Fenway Health</a></p>
+
             <p className="text-center"> <a href="https://pubmed.ncbi.nlm.nih.gov/35212746/">Mental Health Outcomes in Transgender and Nonbinary Youths Receiving Gender-Affirming Care </a></p>
 
             <p className="text-center"><a href="https://www.hrc.org/resources/get-the-facts-on-gender-affirming-care">Human Rights Campaign: Get the Facts on Gender-Affirming Care</a></p>
